@@ -1,6 +1,6 @@
-import { Image, NativeModules } from 'react-native';
+import { Image } from 'react-native';
 
-import { emitter } from './emitter';
+import { emitter, NativeAudioPro } from './emitter';
 import { useInternalStore } from './useInternalStore';
 import { guardTrackPlaying, logDebug, validateTrack } from './utils';
 import { AudioProEventType, AudioProState, DEFAULT_CONFIG, DEFAULT_SEEK_MS } from './values';
@@ -11,8 +11,6 @@ import type {
 	AudioProPlayOptions,
 	AudioProTrack,
 } from './types';
-
-const NativeAudioPro = NativeModules.AudioPro;
 
 function isValidPlayerStateForOperation(operation: string): boolean {
 	const { playerState } = useInternalStore.getState();
